@@ -65,7 +65,7 @@ CFLAGS += -nostartfiles -nodefaultlibs -nostdlib
 all: $(PROJECT).bin
 	$(SIZE) $(PROJECT).elf
 clean: 
-	$(RM) -rf *.bin *.elf *.asm
+	$(RM) -f *.bin *.elf *.asm *.o boot/*.o libs/Sources/*.o
 asm: $(PROJECT).asm
 flash: 
 	$(STW) $(PROJECT).bin $(FLASH_START)

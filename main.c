@@ -1,8 +1,6 @@
 /*
  *
- *	It is simple template project.
- *	This project doesnt have SystemInit function.
- *  So after Reset_Handler starts main.
+ *  It is simple template project.
  *  RCC configured in config.c file.
  *
  */
