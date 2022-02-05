@@ -65,7 +65,7 @@ CFLAGS += -nostartfiles -nodefaultlibs -nostdlib
 all: $(PROJECT).bin
 	$(SIZE) $(PROJECT).elf
 clean: 
-	$(RM) -f *.bin *.elf *.asm *.o boot/*.o libs/Sources/*.o
+	$(RM) -f *.bin *.elf *.asm *.o boot/*.o libs/Sources/*.o *.pp libs/Sources/*.pp 
 asm: $(PROJECT).asm
 flash: 
 	$(STW) $(PROJECT).bin $(FLASH_START)
@@ -76,7 +76,7 @@ gdbs:
 gdbr: $(PROJECT).elf
 	$(GDB) -ex 'target extended-remote :4242' \
 		   -ex 'load'  $(PROJECT).elf
-	
+preprocess: $(SOURCE_C:.c=.pp)
 
 # Source Rules
 
@@ -96,3 +96,6 @@ $(PROJECT).elf: $(OBJS)
 %.asm: %.elf
 	$(OBJD) -dwh $< > $@
 
+# Preprocess
+%.pp: %.c
+	$(CC) -E $(CFLAGS) $< -o $@

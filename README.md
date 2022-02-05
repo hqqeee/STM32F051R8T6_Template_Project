@@ -25,6 +25,7 @@ Make commands:
  - make erase - erase STM32 flash memory.
  - make gdbs - provides a gdb server. 
  - make gdbr - connect to the gdb server at port 4242, load executable to the STM32 ﬂash memory. (in another terminal after make gdbs)
+ - make preprocess - creates .pp preprocessed files for each source file
 
 Needed tools:
  - arm-none-eabi
